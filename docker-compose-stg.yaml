@@ -1,0 +1,16 @@
+services:
+  floci-stg:
+    image: floci/floci:latest
+    container_name: floci-stg
+    ports:
+      - "4567:4566"
+    user: root
+    environment:
+      FLOCI_STORAGE_MODE: persistent
+      FLOCI_STORAGE_PERSISTENT_PATH: /app/data
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - floci-data-stg:/app/data
+
+volumes:
+  floci-data-stg:
