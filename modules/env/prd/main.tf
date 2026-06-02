@@ -12,7 +12,7 @@ terraform {
 
 # Provider
 provider "aws" {
-  region = "ap-northeast-1"
+  region = var.aws_region
 
   access_key = "test"
   secret_key = "test"
@@ -22,9 +22,9 @@ provider "aws" {
   skip_requesting_account_id = true
 
   endpoints {
-    ec2 = "http://localhost:4567"
-    sts = "http://localhost:4567"
-    s3 = "http://localhost:4567"
+    ec2 = "http://localhost:4568"
+    sts = "http://localhost:4568"
+    s3 = "http://localhost:4568"
   }
 }
 

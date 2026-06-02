@@ -36,6 +36,14 @@ docker compose -f .\compose-stg.yaml up -d
 docker compose -f .\compose-prd.yaml up -d
 ```
 
+## ローカルリソースの確認方法
+
+Floci 上のリソースは、AWS CLI にローカルのエンドポイントを指定して確認します。
+
+```powershell
+aws --endpoint-url http://localhost:{port}
+```
+
 ## 停止方法
 
 ```powershell

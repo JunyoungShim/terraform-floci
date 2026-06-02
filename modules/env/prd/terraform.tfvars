@@ -1,3 +1,4 @@
+aws_region = "ap-northeast-1"
 system_name = "tf-test"
 environment = "prd"
 vpc_cidr = "10.0.0.0/16"

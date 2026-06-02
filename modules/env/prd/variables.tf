@@ -1,4 +1,7 @@
 # project
+variable "aws_region" {
+  type = string
+}
 variable "system_name" {
   type = string
 }

@@ -3,7 +3,7 @@ resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-vpc"
+    Name = "${var.system_name}-${var.environment}-vpc"
   }
 }
 
@@ -15,7 +15,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block = var.public_subnet_cidrs[count.index]
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-public-subnet${count.index + 1}"
+    Name = "${var.system_name}-${var.environment}-public-subnet${count.index + 1}"
   }
 }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "protect_subnet" {
   cidr_block = var.protect_subnet_cidrs[count.index]
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-protect-subnet${count.index + 1}"
+    Name = "${var.system_name}-${var.environment}-protect-subnet${count.index + 1}"
   }
 }
 
@@ -39,14 +39,14 @@ resource "aws_subnet" "private_subnet" {
   cidr_block = var.private_subnet_cidrs[count.index]
   
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-private-subnet${count.index + 1}"
+    Name = "${var.system_name}-${var.environment}-private-subnet${count.index + 1}"
   }
 }
 
 # Internet gateway
 resource "aws_internet_gateway" "igw" {
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-igw"
+    Name = "${var.system_name}-${var.environment}-igw"
   }
 }
 resource "aws_internet_gateway_attachment" "igw_attach" {
@@ -58,7 +58,7 @@ resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-public-rt"
+    Name = "${var.system_name}-${var.environment}-public-rt"
   }
 }
 
@@ -74,7 +74,7 @@ resource "aws_route_table" "protect_rt" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-protect-rt${count.index + 1}"
+    Name = "${var.system_name}-${var.environment}-protect-rt${count.index + 1}"
   }
 }
 
@@ -84,11 +84,6 @@ resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "${var.system_name}-${var.enviroment}-private-rt${count.index + 1}"
+    Name = "${var.system_name}-${var.environment}-private-rt${count.index + 1}"
   }
-}
-
-# S3 Bucket
-resource "aws_s3_bucket" "image-bucket" {
-  bucket = "${var.system_name}-${var.enviroment}-image-bucket"
 }

@@ -2,7 +2,7 @@
 variable "system_name" {
   type = string
 }
-variable "enviroment" {
+variable "environment" {
   type = string
 }
 
@@ -29,4 +29,13 @@ variable "protect_subnet_cidrs" {
 
 variable "private_subnet_cidrs" {
   type = list(string)
+}
+
+variable "domain" {
+  type = string
+}
+
+# Floci テスト用
+variable "endpoint" {
+  type = string
 }
