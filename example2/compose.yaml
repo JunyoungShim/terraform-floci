@@ -1,0 +1,11 @@
+services:
+  floci-exam2:
+    image: floci/floci:latest
+    container_name: floci-exam2
+    ports:
+      - "4566:4566"
+    user: root
+    environment:
+      FLOCI_STORAGE_MODE: memory
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
