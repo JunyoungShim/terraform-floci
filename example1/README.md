@@ -3,6 +3,10 @@
 Floci 上で Scheduler、Lambda、SQS、S3、Parameter Store を試すためのサンプルです。
 Lambda は Parameter Store から SQS キュー名と S3 バケット名を取得し、SQS に入ったメッセージを S3 に JSON ファイルとして保存します。
 
+## アーキテクチャ
+
+![example1 architecture](docs/example1.drawio.png)
+
 ## 実行
 
 コマンドは `example1` ディレクトリで実行します。
